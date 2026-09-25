@@ -26,6 +26,7 @@ sixth third-party App port (autobleem-main `docs/decisions.md`, "Third-party App
 | `upstream/jfduke3d` | the pinned upstream source (submodule, with nested submodules) |
 | `patches/jfduke3d/0001-psc-pad-layout.patch` | the default pad tables in `src/_functio.h` (above) |
 | `patches/jfduke3d/0002-nosetup-on-the-first-start.patch`, `0003-no-start-window-with-nosetup.patch` | as JFSW's: `-nosetup` wins on the first start, and no start window at all |
+| `patches/jfduke3d/0004-psc-stick-sensitivity.patch` | **the console build only** (`-DAB_PSC`, `target_psc`): the turning axis (0, `analog_turning`) defaults to a scale of **0.1** (6554) instead of 1.0, the other axes keep 1.0. The console's own pad has no stick - the virtual pad turns its D-pad into the left stick at full deflection, and at 1.0 it turned far too fast (the owner, 2026-09-25, from `20260105-2`). A pad with a real stick wants more - the game keeps one value for every pad, so the console build defaults to its own pad's. A config saved before keeps its value (Options -> Joystick setup). |
 | `resources/` | `app.ini` (`Exec=bin/{key}/duke3d`, `Args=-nosetup`, `VirtualPad=true`), `readme.txt`, `icon.png` |
 | `ci/build.sh` | JFSW's, for `duke3d` - see there |
 | `tools/make_icon.py` | the icon from the title screen, BETASCREEN (tile 2493) - **in the title palette** (LOOKUP.DAT's third palette, after the shade tables and the water and slime palettes, as `astub.c` reads it); the game palette gives wrong colours |
