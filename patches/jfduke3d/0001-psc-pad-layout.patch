@@ -1,0 +1,98 @@
+diff --git a/src/_functio.h b/src/_functio.h
+index 8ea21ae..69d663d 100644
+--- a/src/_functio.h
++++ b/src/_functio.h
+@@ -256,23 +256,29 @@ static char * mouseclickeddefaults_modern[MAXMOUSEBUTTONS] =
+    };
+ 
+ 
++// AutoBleem: the PlayStation Classic port's layout (2020, EDuke32's) as far as a button-per-function config
++// allows - Cross fire, Circle crouch, Triangle jump, Square open (double press: kick), Select map (double
++// press: autorun), Start menu, L1 next inventory item (double press: use it), R1 next weapon, L2/R2 strafe (the
++// digital axes below), the D-pad and the left stick move and turn, a right stick strafes and looks up/down.
++// (2020's "hold L1/R1 and use the D-pad" has no equivalent here.) The classic set put the D-pad on aiming and
++// looking, which leaves the console's own pad - a D-pad and no sticks - unable to move.
+ static char * joystickdefaults[MAXJOYBUTTONS] =
+    {
+-   "Fire",        // A
+-   "Strafe",      // B
+-   "Run",         // X
+-   "Open",        // Y
+-   "",            // Back
++   "Fire",        // A - Cross
++   "Crouch",      // B - Circle
++   "Open",        // X - Square
++   "Jump",        // Y - Triangle
++   "Map",         // Back - Select
+    "",            // Guide
+    "Show_Menu",   // Start
+    "",            // L thumb
+    "",            // R thumb
+-   "",            // L shoulder
+-   "",            // R shoulder
+-   "Aim_Up",      // DP up
+-   "Aim_Down",    // DP down
+-   "Look_Left",   // DP left
+-   "Look_Right",  // DP right
++   "Inventory_Right", // L shoulder - L1
++   "Next_Weapon", // R shoulder - R1
++   "Move_Forward",  // DP up
++   "Move_Backward", // DP down
++   "Turn_Left",   // DP left
++   "Turn_Right",  // DP right
+    "",
+    "",
+    "",
+@@ -296,15 +302,15 @@ static char * joystickdefaults[MAXJOYBUTTONS] =
+ static char * joystickclickeddefaults[MAXJOYBUTTONS] =
+    {
+    "",            // A
+-   "Inventory",   // B
+-   "Jump",        // X
+-   "Crouch",      // Y
+-   "",            // Back
++   "",            // B
++   "Quick_Kick",  // X - Square, double press
++   "",            // Y
++   "AutoRun",     // Back - Select, double press
+    "",            // Guide
+    "",            // Start
+    "",            // L thumb
+    "",            // R thumb
+-   "",            // L shoulder
++   "Inventory",   // L shoulder - L1, double press: use the item
+    "",            // R shoulder
+    "",            // DP up
+    "",            // DP down
+@@ -425,7 +431,7 @@ static char * joystickanalogdefaults[MAXJOYAXES] =
+    "analog_turning",
+    "analog_moving",
+    "analog_strafing",
+-   "",
++   "analog_lookingupanddown",
+    "",
+    "",
+    "",
+@@ -437,6 +443,7 @@ static char * joystickanalogdefaults[MAXJOYAXES] =
+    };
+ 
+ 
++// two per axis, negative then positive: the triggers (axes 4 and 5, pressed = positive) strafe
+ static char * joystickdigitaldefaults[MAXJOYAXES*2] =
+    {
+    "",
+@@ -445,12 +452,12 @@ static char * joystickdigitaldefaults[MAXJOYAXES*2] =
+    "",
+    "",
+    "",
+-   "Run",
+-   "",
+    "",
+    "",
+    "",
++   "Strafe_Left",  // L2
+    "",
++   "Strafe_Right", // R2
+    "",
+    "",
+    "",

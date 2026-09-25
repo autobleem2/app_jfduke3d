@@ -1,0 +1,3 @@
+[submodule "upstream/jfduke3d"]
+	path = upstream/jfduke3d
+	url = https://github.com/jonof/jfduke3d.git
