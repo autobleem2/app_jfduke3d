@@ -30,7 +30,8 @@ sixth third-party App port (autobleem-main `docs/decisions.md`, "Third-party App
 | `resources/` | `app.ini` (`Exec=bin/{key}/duke3d`, `Args=-nosetup`, `VirtualPad=true`), `readme.txt`, `icon.png` |
 | `ci/build.sh` | JFSW's, for `duke3d` - see there |
 | `tools/make_icon.py` | the icon from the title screen, BETASCREEN (tile 2493) - **in the title palette** (LOOKUP.DAT's third palette, after the shade tables and the water and slime palettes, as `astub.c` reads it); the game palette gives wrong colours |
-| `tools/store_item.py`, `tools/check_psc_binary.sh`, `tools/check_needed.sh` | as in the other ports |
+| `tools/store_item.py` | as in the other ports |
+| `/opt/ab/tools/check_psc_binary.sh`, `/opt/ab/tools/check_needed.sh` (autobleem-build image) | no longer vendored (APPS-6) - as in the other ports |
 
 ## Things to know
 
