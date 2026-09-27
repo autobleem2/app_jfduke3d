@@ -11,7 +11,7 @@ sixth third-party App port (autobleem-main `docs/decisions.md`, "Third-party App
 
 - **JFDuke3D, not EDuke32** (what the 2020 App was): the JFSW family - a known build and known patches,
   the original game faithfully - over EDuke32's much bigger C++ build with no releases.
-- **Upstream**: `jonof/jfduke3d` pinned at tag `20260105` (nested submodules). Package version `20260105-1`.
+- **Upstream**: `jonof/jfduke3d` pinned at tag `20260105` (nested submodules). Package version `20260105-2`.
 - **The 2020 layout, as far as a button-per-function config allows** (`0001-psc-pad-layout.patch`): Cross fire,
   Circle crouch, Triangle jump, Square open (double: Quick_Kick), Select map (double: AutoRun), Start menu, **L1
   next inventory item (double: use it), R1 next weapon** (the owner's choice - 2020's "hold L1/R1 + D-pad" has no
