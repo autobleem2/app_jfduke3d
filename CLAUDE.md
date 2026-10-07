@@ -11,7 +11,7 @@ sixth third-party App port (autobleem-main `docs/decisions.md`, "Third-party App
 
 - **JFDuke3D, not EDuke32** (what the 2020 App was): the JFSW family - a known build and known patches,
   the original game faithfully - over EDuke32's much bigger C++ build with no releases.
-- **Upstream**: `jonof/jfduke3d` pinned at tag `20260105` (nested submodules). Package version `20260105-2`.
+- **Upstream**: `jonof/jfduke3d` pinned at tag `20260105` (nested submodules). Package version `20260105-3`.
 - **The 2020 layout, as far as a button-per-function config allows** (`0001-psc-pad-layout.patch`): Cross fire,
   Circle crouch, Triangle jump, Square open (double: Quick_Kick), Select map (double: AutoRun), Start menu, **L1
   next inventory item (double: use it), R1 next weapon** (the owner's choice - 2020's "hold L1/R1 + D-pad" has no
@@ -44,6 +44,7 @@ sixth third-party App port (autobleem-main `docs/decisions.md`, "Third-party App
 - **Build on the server**: sync with MSYS2's rsync (excluding `/build_*`, `/dist`), then
   `docker run --rm -u $(id -u):$(id -g) -v $PWD:/src -w /src ghcr.io/autobleem2/autobleem-build:develop ci/build.sh all`;
   delete what it left once finished (autobleem-main `docs/decisions.md`).
+- **Category** (the owner, 2026-10-07): every `app.ini` carries `Category=games` (the launcher's Apps tab files an App by it: games, emulators, tools, media, other - any case) and `tools/store_item.py` writes `"category": "games"` into the Store item.
 - **Releases**: a `v<version>` tag (`v20260105-1`) builds a stable GitHub release (in the release image);
   `master` follows the released commit. The Store gets it by hand: `gh release download <tag>`,
   `tools/store_item.py` per zip, then autobleem-repo's `repo_publish.sh store <key> dist/store/<key>/*`.

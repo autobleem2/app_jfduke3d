@@ -38,6 +38,7 @@ def main(argv):
     item = {
         "id": "app/eduke32",
         "kind": "app",
+        "category": "games",
         "title": "Duke Nukem 3D (Shareware)",
         "version": version,
         "author": "JFDuke3D by Jonathon Fowler; Duke Nukem 3D by 3D Realms",
